@@ -32,24 +32,29 @@ body {
     margin: 10px;
     position: relative;
     transition: flex 0.8s ease-in-out;
+    cursor: pointer;
 }
 
 .panel.active {
     flex: 7;
 }
 
-h3 {
+.panel h3 {
     color: rgb(0, 191, 255);
     font-size: 1.8rem;
     position: absolute;
     bottom: 10px;
     left: 10px;
     margin: 0;
-    opacity: 100;
+    opacity: 0;
     text-align: center;
 }
 
-p {
+.panel.active h3 {
+    opacity: 1;
+}
+
+.panel p {
     color: rgb(0, 0, 0);
     position: absolute;
     left: 10px;
@@ -60,4 +65,21 @@ p {
 
 .panel.active p {
     opacity: 100;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4), 
+    .panel:nth-of-type(5),
+    .panel:nth-of-type(6),
+    .panel:nth-of-type(7),
+    .panel:nth-of-type(8),
+    .panel:nth-of-type(9),
+    .panel:nth-of-type(10) {
+        display: none;
+    }
 }
