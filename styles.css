@@ -31,6 +31,7 @@ body {
     margin: 10px;
     position: relative;
     transition: flex 0.8s ease-in-out;
+  
 }
 .panel.active {
     flex: 10;
@@ -43,12 +44,22 @@ h3 {
     bottom: 10px;
     left: 10px;
     margin: 0;
-    opacity: 0;
+    opacity: 100;
+    text-align: center;
 }
 
 
 
 p {
-    color: wheat;
-    display: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    bottom: -70px;
+    text-align: center; 
+    font-size: 1.4rem;
+    opacity: 0;
+}
+
+p.active {
+    opacity: 100;
+
 }
