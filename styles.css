@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: 'Barlow', sans-serif;
     display: flex;
@@ -12,17 +13,20 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0;
+    overflow: hidden;
     height: 100vh;
     /* we need height for align items to work*/
+
 }
 
 .container {
     display: flex;
     width: 90vw;
+    height: 80vh;
 }
 
 .panel {
-    background-size: auto 100%;
+    background-size: cover 1000px;
     background-position: center;
     background-repeat: no-repeat;
     height: 60vh;
@@ -34,11 +38,11 @@ body {
   
 }
 .panel.active {
-    flex: 10;
+    flex: 7;
 }
 
 h3 {
-    color: chocolate;
+    color: rgb(0, 191, 255);
     font-size: 1.8rem;
     position: absolute;
     bottom: 10px;
@@ -53,13 +57,14 @@ h3 {
 p {
     color: rgb(0, 0, 0);
     position: absolute;
-    bottom: -70px;
-    text-align: center; 
-    font-size: 1.4rem;
-    opacity: 0;
+    left: 10px;
+    top: 97%;
+    font-size: 1.6rem;
+    opacity: 0;    
 }
 
-p.active {
+.panel.active p {
     opacity: 100;
 
 }
+
