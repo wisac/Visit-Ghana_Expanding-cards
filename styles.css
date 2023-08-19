@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+    /* we need height for align items to work*/
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    border-radius: 50px;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.8s ease-in-out;
+}
+.panel.active {
+    flex: 10;
+}
+
+h3 {
+    color: chocolate;
+    font-size: 1.8rem;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 0;
+    opacity: 0;
+}
+
+
+
+p {
+    color: wheat;
+    display: none;
+}
