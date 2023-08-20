@@ -146,8 +146,8 @@ h1 {
         flex-direction: row;
         justify-content: center;
         gap: 15px;
-        position: absolute;
-        bottom: 30vh;
+        margin-bottom: 30px;
+    
     }
 
     .navigate-btn {
@@ -156,13 +156,6 @@ h1 {
         font-weight: 400px;
         /* position: absolute; */
     }
-
-    .disabled {
-        pointer-events: none;
-        opacity: 0.3;  
-    }
-
-
 
 
 }
