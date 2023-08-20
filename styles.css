@@ -91,6 +91,10 @@ h1 {
     transition-delay: 0.5s;
 }
 
+.navigate-box {
+    display: none;
+}
+
 
 @media (max-width: 568px) and (min-width: 100px) {
    h1 {
