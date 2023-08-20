@@ -17,3 +17,21 @@ function removeActivePanel() {
     });
 }
 
+
+
+//MOBILE VIEW
+let resizeTimeout;
+
+window.addEventListener('resize', function(event) {
+    clearTimeout(resizeTimeout);
+    
+    resizeTimeout = setTimeout(function() {
+        console.log(event)
+        console.log(document.body.scrollHeight);
+    }, 250); // Adjust the delay (in milliseconds) as needed
+});
+
+
+// if screenwidth less than mobile range
+        //show only one panel and show next and previous buttons
+        
