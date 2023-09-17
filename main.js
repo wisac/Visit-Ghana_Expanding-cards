@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         swipeElement.addEventListener('touchend', (e) => {
             const deltaX = endX - startX;
             console.log("delta", deltaX);
-           
+
             // Horizontal swipe detected
             if (deltaX && moved) {
                 if (deltaX > 0) {
@@ -118,6 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (move === "next" && activePanelIndex < panels.length - 1) {
             removeActivePanel();
             panels[++activePanelIndex].classList.add("active");
+            dotEnabler();
+
 
         }
 
@@ -126,6 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
             removeActivePanel();
 
             panels[--activePanelIndex].classList.add("active");
+            dotEnabler();
+
 
         }
     }
@@ -143,28 +147,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// let resizeTimeout;
 
-// window.addEventListener('resize', function(event) {
-//     clearTimeout(resizeTimeout);
+//////////////
+//Dot indicators
+const dotsDiv = document.querySelector(".dots-container");
 
-//     resizeTimeout = setTimeout(function() {
-//         console.log(event)
-//         console.log(document.body.scrollHeight);
-//     }, 250); // Adjust the delay (in milliseconds) as needed
-// });
+//function to create dots
+function createDots() {
+    for (let i = 0; i < panels.length; i++) {
+        const dot = document.createElement("button");
+        dot.classList.add(...["dot", `dot-${i + 1}`]);
+        dotsDiv.appendChild(dot);
+    }
+}
 
-/* if screenwidth less than mobile range
-        //show only one panel and show next and previous buttons
-        //know the active panel
-        //when next is clicked: 
-            disable all panels
-            show next panel in the array
-        //when prev is clicked:
-            disable all panels
-            show prev panel in array
+createDots();
 
-            
-            
-        
-*/
+const allDots = document.querySelectorAll(".dot");
+
+//function to enable active dot
+function dotEnabler() {
+    allDots.forEach(dot => {
+        dot.classList.remove("dot-active");
+    });
+
+    allDots[activePanelIndex].classList.add("dot-active");
+    console.log(allDots);
+}
+
+dotEnabler();
