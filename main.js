@@ -5,10 +5,18 @@ const panels = document.querySelectorAll(".panel");
 //listen to clicked panel and activate it then deactivate all others
 for (let panel of panels.values()) {
     panel.addEventListener("click", function () {
-        removeActivePanel();
-        panel.classList.add("active");
+        if (document.documentElement.getBoundingClientRect().width > 768) {
+            removeActivePanel();
+            panel.classList.add("active");
+            dotEnabler();
+            console.log(activePanelIndex)
+        }
+        console.log(document.documentElement.getBoundingClientRect().width);
+
     });
 }
+
+
 
 //function to deactivate all panels
 function removeActivePanel() {
@@ -24,42 +32,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (document.documentElement.getBoundingClientRect().width < 768) {
         //Add buttons and set init state
-        const navigate = document.createElement("div");
-        const prevBtn = document.createElement("button");
-        const nextBtn = document.createElement("button");
+        // const navigate = document.createElement("div");
+        // const prevBtn = document.createElement("button");
+        // const nextBtn = document.createElement("button");
 
-        document.querySelector("main").appendChild(navigate);
-        navigate.appendChild(prevBtn);
-        navigate.appendChild(nextBtn);
-        navigate.classList.add("navigate-box");
-        prevBtn.textContent = "PREV";
-        nextBtn.textContent = "NEXT";
-        nextBtn.classList.add("navigate-btn");
-        prevBtn.classList.add("navigate-btn");
+        // document.querySelector("main").appendChild(navigate);
+        // navigate.appendChild(prevBtn);
+        // navigate.appendChild(nextBtn);
+        // navigate.classList.add("navigate-box");
+        // prevBtn.textContent = "PREV";
+        // nextBtn.textContent = "NEXT";
+        // nextBtn.classList.add("navigate-btn");
+        // prevBtn.classList.add("navigate-btn");
 
 
-        //Active panel is the first so can't go back
-        prevBtn.setAttribute("disabled", "true");
+        // //Active panel is the first so can't go back
+        // prevBtn.setAttribute("disabled", "true");
 
-        //navigate forward
-        nextBtn.addEventListener("click", () => {
-            switchPanel("next");
-            btnDisabler(prevBtn, nextBtn);
-        });
+        // //navigate forward
+        // nextBtn.addEventListener("click", () => {
+        //     switchPanel("next");
+        //     btnDisabler(prevBtn, nextBtn);
+        // });
 
-        //navigate back
-        prevBtn.addEventListener("click", () => {
-            switchPanel("prev");
-            btnDisabler(prevBtn, nextBtn);
-        });
+        // //navigate back
+        // prevBtn.addEventListener("click", () => {
+        //     switchPanel("prev");
+        //     btnDisabler(prevBtn, nextBtn);
+        // });
 
 
         swiping();
 
+
     }
-
-
-
 
 
     //////////SWIPING   FUNCTION
@@ -74,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add touchstart event listener
         swipeElement.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
-            console.log("start", startX);
+            // console.log("start", startX);
             // console.log(e);
         });
 
@@ -82,26 +88,26 @@ document.addEventListener("DOMContentLoaded", () => {
         swipeElement.addEventListener('touchmove', (e) => {
             endX = e.touches[0].clientX;
             moved = true;
-            console.log("end", endX);
+            // console.log("end", endX);
             // console.log(e)
         });
 
         // Add touchend event listener
         swipeElement.addEventListener('touchend', (e) => {
             const deltaX = endX - startX;
-            console.log("delta", deltaX);
+            // console.log("delta", deltaX);
 
             // Horizontal swipe detected
             if (deltaX && moved) {
                 if (deltaX > 0) {
-                    console.log("right");
+                    // console.log("right");
                     // alert("swiped-right");
-                    switchPanel("next");
+                    switchPanel("prev");
                     // Swipe right
                     // Your code for handling right swipe here
                 } else {
-                    switchPanel("prev");
-                    console.log("left");
+                    switchPanel("next");
+                    // console.log("left");
                     // Swipe left
                     // Your code for handling left swipe here
                 }
@@ -120,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
             panels[++activePanelIndex].classList.add("active");
             dotEnabler();
 
-
+            console.log(activePanelIndex);
         }
 
 
@@ -132,6 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         }
+
+
     }
 
 
@@ -172,7 +180,7 @@ function dotEnabler() {
     });
 
     allDots[activePanelIndex].classList.add("dot-active");
-    console.log(allDots);
+    // console.log(allDots);
 }
 
 dotEnabler();
