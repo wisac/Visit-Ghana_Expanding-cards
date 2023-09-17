@@ -114,7 +114,8 @@ h1 {
 @media (max-width: 568px) {
      
     h1 {
-        margin-top: 0;
+        margin: 5% 0;
+
         font-size: 1rem;
         text-align: center;
     }
@@ -137,8 +138,8 @@ h1 {
     .container {
         width: 95%;
         height: 90%;
-        box-shadow: 0 0 10px#4141268f;
-        margin-bottom: auto;
+        box-shadow: 0 0 10px#212110ec;
+        /* margin-bottom: auto; */
         border-radius: 8px;
     }
 
@@ -146,7 +147,7 @@ h1 {
     .panel {
         display: none;
         border-radius: 8px;
-        height: 30vh;
+        height: 40%;
         background-size: cover;
         background-position: bottom;
 
@@ -164,6 +165,7 @@ h1 {
                 /* color: red; */
                 left: 10px;
                 opacity: 100;
+                margin-top: 15px;
             }
         }
 
