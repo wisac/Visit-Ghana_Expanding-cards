@@ -6,11 +6,13 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         to bottom right,
-        rgba(154, 147, 16, 0.573),
-        rgba(34, 44, 1, 0.852)
-    );
+        rgba(58, 80, 22, 0.573),
+        rgba(23, 47, 3, 0.891)
+    ); */
+    background-color: #202c059f;
+
     /* we need height for align items to work*/
     overflow: hidden;
 }
@@ -36,12 +38,17 @@ h1 {
     display: flex;
     width: 90vw;
     height: 80vh;
+     background-image: linear-gradient(
+        to bottom left ,#718030,#3e4811, #17240a
+        
+    );
 }
 
 .panel {
     background-size: cover 1000px;
     background-position: center;
     background-repeat: no-repeat;
+
     height: 60vh;
     border-radius: 50px;
     flex: 0.5;
@@ -49,6 +56,7 @@ h1 {
     position: relative;
     transition: flex 0.8s ease-in-out;
     cursor: pointer;
+    
 }
 
 .panel.active {
@@ -95,13 +103,13 @@ h1 {
     display: none;
 }
 
-
 .panel h2 {
     margin-left: 20px;
     font: 1rem;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
+/* MOBILE STYLES */
 @media (max-width: 568px) {
     h1 {
         margin-top: 0;
@@ -110,43 +118,49 @@ h1 {
     }
 
     .container {
-        width: 100vw;
-        height: 90vh;
+        width: 90vw;
+        height: 80vh;
+        box-shadow: 0 0 15px#4141268f;
+        margin-bottom: auto;
+        border-radius: 8px;
     }
 
+    /* Panel styles*/
     .panel {
         display: none;
         border-radius: 8px;
-        height: 35vh;
-        background-size: contain;
-    }
+        height: 30vh;
+        background-size: cover;
+        background-position: bottom;
 
-    .panel h3 {
-        text-align: center;
-        border-radius: 5px;
-        padding: 0 0 0 0;
-        left: 10px;
-        bottom: 0;
-        opacity: 0;
 
-        /* color: rgb(0, 255, 229); */
+        &.active {
+            display: block;
+            opacity: 1;
+            box-shadow: none;
+            border-radius: 8px;
+            /* box-shadow: 0 0 5px #000000; */
 
-        font-size: 1rem;
-    }
 
-    .panel.active p {
-        font-size: 1rem;
-        /* color: red; */
-        left: 10px;
-    }
-    .panel.active p {
-        opacity: 100;
-    }
+            & p {
+                font-size: 1rem;
+                /* color: red; */
+                left: 10px;
+                opacity: 100;
+            }
+        }
 
-    .panel.active {
-        display: block;
-        opacity: 1;
-    }
+        & h3 {
+            text-align: center;
+            border-radius: 5px;
+            padding: 0 0 0 0;
+            left: 10px;
+            bottom: 0;
+            opacity: 0;
+            font-size: 1rem;
+        }
+    } /* End of panel styles*/
+
     .hidden {
         display: none;
     }
@@ -166,7 +180,6 @@ h1 {
         font-weight: 700px;
         box-shadow: 1px 1px 10px 2px #464629;
         /* position: absolute; */
-
     }
 }
 
@@ -174,4 +187,3 @@ h1 {
     background-color: rgba(183, 186, 181, 0.572);
     border: none;
 }
-
