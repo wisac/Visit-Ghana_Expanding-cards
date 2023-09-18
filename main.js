@@ -2,6 +2,8 @@
 
 const panels = document.querySelectorAll(".panel");
 
+const links = document.querySelectorAll(".link");
+
 //listen to clicked panel and activate it then deactivate all others
 for (let panel of panels.values()) {
     panel.addEventListener("click", function () {
@@ -9,9 +11,7 @@ for (let panel of panels.values()) {
             removeActivePanel();
             panel.classList.add("active");
             dotEnabler();
-            console.log(activePanelIndex)
         }
-        console.log(document.documentElement.getBoundingClientRect().width);
 
     });
 }
@@ -20,8 +20,9 @@ for (let panel of panels.values()) {
 
 //function to deactivate all panels
 function removeActivePanel() {
-    panels.forEach(function (panel) {
+    panels.forEach(function (panel, i) {
         panel.classList.remove("active");
+        links[i].classList.remove("active");
     });
 }
 
@@ -80,36 +81,31 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add touchstart event listener
         swipeElement.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
-            // console.log("start", startX);
-            // console.log(e);
+
         });
 
         // Add touchmove event listener
         swipeElement.addEventListener('touchmove', (e) => {
             endX = e.touches[0].clientX;
             moved = true;
-            // console.log("end", endX);
-            // console.log(e)
+
         });
 
         // Add touchend event listener
         swipeElement.addEventListener('touchend', (e) => {
             const deltaX = endX - startX;
-            // console.log("delta", deltaX);
+
 
             // Horizontal swipe detected
             if (deltaX && moved) {
-                if (deltaX > 0) {
-                    // console.log("right");
-                    // alert("swiped-right");
+                if (deltaX > 10) {
+
                     switchPanel("prev");
                     // Swipe right
                     // Your code for handling right swipe here
                 } else {
                     switchPanel("next");
-                    // console.log("left");
-                    // Swipe left
-                    // Your code for handling left swipe here
+
                 }
             }
             moved = false;
@@ -124,9 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (move === "next" && activePanelIndex < panels.length - 1) {
             removeActivePanel();
             panels[++activePanelIndex].classList.add("active");
+            links[activePanelIndex].classList.add("active");
+
             dotEnabler();
 
-            console.log(activePanelIndex);
+
         }
 
 
@@ -134,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
             removeActivePanel();
 
             panels[--activePanelIndex].classList.add("active");
+            links[activePanelIndex].classList.add("active");
             dotEnabler();
 
 
@@ -180,7 +179,7 @@ function dotEnabler() {
     });
 
     allDots[activePanelIndex].classList.add("dot-active");
-    // console.log(allDots);
+
 }
 
 dotEnabler();
