@@ -64,9 +64,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         swiping();
-
-
     }
+
+
+    const toast = document.querySelector(".toast");
+    setTimeout(() => {
+        toast.style.opacity = "1";
+    }, 100);
+    setTimeout(() => {
+        toast.style.opacity = "0";
+    }, 3000);
+
+
+    // Example usage
+
+
+
+
+
 
 
     //////////SWIPING   FUNCTION
